@@ -1,13 +1,13 @@
 public class Drops {
 
-    private int weight;
+    Ability ability = new Ability();
 
-    public int getWeight() {
-        return weight;
+    public Ability getAbility() {
+        return ability;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setAbility(Ability ability) {
+        this.ability = ability;
     }
 
     @Override
