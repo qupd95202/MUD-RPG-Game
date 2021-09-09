@@ -1,3 +1,4 @@
+package rpg;
 public class Character {
     private String name;
     private int maxHp;
@@ -9,6 +10,7 @@ public class Character {
     private int exp;
     private int LV;
     private String kind;
+    
 
     public Character() {
         exp = 0;
@@ -16,6 +18,7 @@ public class Character {
 
     public void setDex(int dex) {
         this.dex = dex;
+        
     }
 
 

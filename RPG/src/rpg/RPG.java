@@ -15,7 +15,9 @@ public class RPG {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.print("hi");
+        Character king = new Character();
+        king.setDef(5);
+        System.out.println(king.getDef());
     }
     
 }

@@ -1,3 +1,4 @@
+package rpg;
 public class Player extends Character {
     private int itemMaxmum;
     private int weaponMaxmum;
