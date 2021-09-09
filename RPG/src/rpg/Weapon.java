@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RPG;
+package rpg;
 
 /**
  *
@@ -22,28 +22,28 @@ public class Weapon extends Item {
         this.setAttack(2);
         this.setWeight(10);
         this.setInitial(true);
-        this.setName("劍");
+//        this.setName("劍");
     }
 
     public void axe() {
         this.setAttack(4);
         this.setWeight(15);
         this.setInitial(true);
-        this.setName("斧頭");
+//        this.setName("斧頭");
     }
 
     public void wand() {
         this.setAttack(-2);
         this.setWeight(7);
         this.setInitial(true);
-        this.setName("法杖");
+//        this.setName("法杖");
     }
 
     public void bow() {
         this.setAttack(3);
         this.setWeight(9);
         this.setInitial(false);
-        this.setName("弓箭");
+//        this.setName("弓箭");
     }
 
     public void setAttack(int attack) {
