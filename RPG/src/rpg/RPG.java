@@ -24,9 +24,32 @@ public class RPG {
         System.out.print("請輸入角色名稱->");
         newPlayer.setName(sc.next());
         System.out.println("你好" + newPlayer.getName());
-        //選擇起始武器
+        
+        
+        
+        //選擇起始武器（調用初始武器的ArrayList)
         System.out.println("請選擇一個武器");
-        Class dropClass = 
+        for(int i = 0; i < weaponList.size(); i++){
+            System.out.println("名稱：" + weaponList.get(i).getName() + 
+                        "攻擊：" + weaponList.get(i).getAttack() + 
+                        "重量：" + weaponList.get(i).getWeight() 
+            );
+        }
+        int chooseW = sc.nextInt();
+        newPlayer.setStr(newPlayer.getStr() + weaponList.get(chooseW).getAttack()) ;
+        
+        
+        //選擇起始防具 （調用初始防具的ArrayList)
+        System.out.println("請選擇一個防具");
+        for(int i = 0; i < List.size(); i++){
+            System.out.println("名稱：" + armorList.get(i).getName() + 
+                        "攻擊：" + armorList.get(i).getAttack() + 
+                        "重量：" + armorList.get(i).getWeight()
+            );
+        }
+        test
+
+
         //進入隨機地圖
         
         
@@ -39,9 +62,4 @@ public class RPG {
         
         //過關
     }
-    public void showList (ArrayList<Drops> arr){ 
-        
-    }
-    
-    
 }
