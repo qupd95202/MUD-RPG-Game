@@ -14,7 +14,6 @@ public class Ability {
     private int con = 0;
     private int equipmentWeight = 0;
     private int maxExp = 0;
-    private int weight = 0;
     private String name;
 
     public String getName() {
@@ -25,13 +24,6 @@ public class Ability {
         this.name = name;
     }
 
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
 
     public int getMaxHp() {
         return maxHp;
@@ -177,6 +169,10 @@ public class Ability {
         hit += value;
     }
 
+    public void lvUp() {
+        LV++;
+    }
+
     public String toString() {
         return "各項素質:\n" +
                 "血量(當前/最大): " + getHp() + "/" + getMaxHp() + "\n" +
@@ -193,6 +189,6 @@ public class Ability {
         dex += newAbility.dex;
         def += newAbility.def;
         hit += newAbility.hit;
-        weight += newAbility.weight;
+        equipmentWeight += newAbility.equipmentWeight;
     }
 }
