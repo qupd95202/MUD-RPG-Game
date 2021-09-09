@@ -3,7 +3,6 @@ public class Ability {
     private int hp = 0;
     private int str = 0;
     private int def = 0;
-    private int atk = 0;
     private int hit = 0;
     private int dex = 0;
     private int exp = 0;
@@ -47,14 +46,6 @@ public class Ability {
 
     public void setStr(int str) {
         this.str = str;
-    }
-
-    public int getAtk() {
-        return atk;
-    }
-
-    public void setAtk(int atk) {
-        this.atk = atk;
     }
 
     public int getDef() {
@@ -183,7 +174,6 @@ public class Ability {
     }
 
     public void merge(Ability newAbility) {
-        atk += newAbility.atk;
         hp += newAbility.hp;
         str += newAbility.str;
         dex += newAbility.dex;
