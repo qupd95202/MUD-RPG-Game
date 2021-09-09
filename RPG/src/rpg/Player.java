@@ -43,6 +43,16 @@ public class Player extends Character {
         positon++; //走一步，自身位置+1
     }
 
+    public void wearWeapon(Weapon weapon) {
+        weaponList.add(weapon);
+        changeWhenWearingEquipment();
+    }
+
+    public void wearArmor(Armor armor) {
+        armorList.add(armor);
+        changeWhenWearingEquipment();
+    }
+
     public void use(int choose) {
         this.getAbility().merge(ItemssList.get(choose - 1).ability);
     }
