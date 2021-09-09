@@ -6,7 +6,7 @@
 package rpg;
 
 import java.util.Scanner;
-
+import java.util.ArrayList;
 /**
  *
  * @author mickytsai
@@ -26,6 +26,7 @@ public class RPG {
         System.out.println("你好" + newPlayer.getName());
         //選擇起始武器
         System.out.println("請選擇一個武器");
+        Class dropClass = 
         //進入隨機地圖
         
         
@@ -38,7 +39,7 @@ public class RPG {
         
         //過關
     }
-    public void showList (){    
+    public void showList (ArrayList<Drops> arr){ 
         
     }
     
