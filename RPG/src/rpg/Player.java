@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Player extends Character {
 
     private ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
-    private ArrayList<Items> armorList = new ArrayList<Items>();
+    private ArrayList<Armor> armorList = new ArrayList<Armor>();
     private ArrayList<Items> ItemssList = new ArrayList<Items>();
     private int positon;
 
@@ -50,7 +50,7 @@ public class Player extends Character {
         getAbility().merge(weapon.ability);
     }
 
-    public void wearArmor(Items armor) {
+    public void wearArmor(Armor armor) {
         armorList.add(armor);     //同上
         getAbility().merge(armor.ability);
     }
@@ -66,25 +66,26 @@ public class Player extends Character {
     }
 
     public void printStatte() {
-        System.out.println(this);
+        System.out.println("\n" + this);
     }
 
     public void printEquipment() {
         System.out.println("裝備數量上限: 武器:" + getAbility().getWeaponMaxmum() + " 防具:" + getAbility().getArmorMaxmum());
         System.out.println("當前裝備:");
         System.out.print("武器:");
-        for(Weapon weapon : weaponList){
+        for (Weapon weapon : weaponList) {
             System.out.print(" " + weapon.ability.getName());
         }
         System.out.println("\n防具:");
-        for(Items armor : armorList){
+        for (Armor armor : armorList) {
             System.out.print(" " + armor.ability.getName());
         }
-        System.out.println("背包空間:" + getAbility().getItemMaxmum() + "  負重(當前/最大): " + getAbility().getEquipmentWeight() + "/" + getAbility().getCon());
+        System.out.println("背包空間:" + getAbility().getItemMaxmum() + "  負重(當前/最大): " + getAbility().getEquipmentWeight() + "/" + getAbility().getCon() + "\n");
     }
 
     public void printAll() {
-
+        printStatte();
+        printEquipment();
     }
 
     @Override

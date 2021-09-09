@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+
 /**
  *
 
@@ -17,13 +18,13 @@ public class Rpg {
         System.out.print("請輸入角色名稱->");
         newPlayer.getAbility().setName(sc.next());
         System.out.println("你好" + newPlayer.getAbility().getName());
-        System.out.println(newPlayer);
+        newPlayer.printAll();
 
 
         //選擇起始武器（調用初始武器的ArrayList)
         System.out.println("請選擇一個武器");
         Weapon w = new Weapon();
-        ArrayList<Items> weaponList = new ArrayList<Items>();
+        ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
 
         w.axe();
         System.out.print("選擇1 ");
@@ -42,17 +43,13 @@ public class Rpg {
 
         System.out.print("選擇->");
         int choose = sc.nextInt();
-        newPlayer.wearWeapon(weaponList.get(choose-1));
-        System.out.println(newPlayer);
+        newPlayer.wearWeapon(weaponList.get(choose - 1));
+        newPlayer.printAll();
 
 
 //        for(int i = 0; i < weaponList.size(); i++){
 //            System.out.println(weaponList);
 //        }
-
-
-
-
 
 
 //        ArrayList<Weapon> armorList = new ArrayList<Item>();
@@ -82,7 +79,6 @@ public class Rpg {
 
 
         //進入事件
-
 
 
         //死亡或殺死一個王

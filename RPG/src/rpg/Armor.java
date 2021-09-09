@@ -39,7 +39,7 @@ public class Armor extends Items {
     }
 
     public void printItem() {
-        System.out.print("名稱:" + this.ability.getName()
+        System.out.println("名稱:" + this.ability.getName()
                 + "\t防禦力:" + this.ability.getDef()
                 + "\t重量:" + this.ability.getEquipmentWeight());
     }
