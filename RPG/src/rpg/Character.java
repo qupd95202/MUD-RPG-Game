@@ -1,3 +1,4 @@
+package rpg;
 public class Character {
     private Ability ability;
     private String kind;
