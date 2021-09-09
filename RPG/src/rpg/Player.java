@@ -1,8 +1,10 @@
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import java.util.ArrayList;
 
 public class Player extends Character {
 
-    private ArrayList<Items> weaponList = new ArrayList<Items>();
+    private ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
     private ArrayList<Items> armorList = new ArrayList<Items>();
     private ArrayList<Items> ItemssList = new ArrayList<Items>();
     private int positon;
@@ -43,7 +45,7 @@ public class Player extends Character {
         positon++; //走一步，自身位置+1
     }
 
-    public void wearWeapon(Items weapon) {
+    public void wearWeapon(Weapon weapon) {
         weaponList.add(weapon);     //穿裝備(順便加上能力值)
         getAbility().merge(weapon.ability);
     }
@@ -63,12 +65,32 @@ public class Player extends Character {
         }
     }
 
+    public void printStatte() {
+        System.out.println(this);
+    }
+
+    public void printEquipment() {
+        System.out.println("裝備數量上限: 武器:" + getAbility().getWeaponMaxmum() + " 防具:" + getAbility().getArmorMaxmum());
+        System.out.println("當前裝備:");
+        System.out.print("武器:");
+        for(Weapon weapon : weaponList){
+            System.out.print(" " + weapon.ability.getName());
+        }
+        System.out.println("\n防具:");
+        for(Items armor : armorList){
+            System.out.print(" " + armor.ability.getName());
+        }
+        System.out.println("背包空間:" + getAbility().getItemMaxmum() + "  負重(當前/最大): " + getAbility().getEquipmentWeight() + "/" + getAbility().getCon());
+    }
+
+    public void printAll() {
+
+    }
+
     @Override
     public String toString() {
         return "名字: " + getAbility().getName() + "\n" + "等級: " + getAbility().getLV() + "   " +
                 "經驗值(當前/最大):" + getAbility().getExp() + "/" + getAbility().getMaxExp() + "\n" +
-                getAbility() +
-                "裝備數量上限: 武器:" + getAbility().getWeaponMaxmum() + " 防具:" + getAbility().getArmorMaxmum() + "\n" +
-                "背包空間:" + getAbility().getItemMaxmum() + "  負重(當前/最大): " + getAbility().getEquipmentWeight() + "/" + getAbility().getCon();
+                getAbility();
     }
 }

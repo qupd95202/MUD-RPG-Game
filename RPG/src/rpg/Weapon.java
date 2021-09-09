@@ -37,4 +37,8 @@ public class Weapon extends Items {
     public boolean getInitial() {
         return this.initial;
     }
+
+    public void printItem() {
+        System.out.println(ability.getName() + " 攻擊力: " + ability.getStr() + " 重量: " + ability.getEquipmentWeight());
+    }
 }
