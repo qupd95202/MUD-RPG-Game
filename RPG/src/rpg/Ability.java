@@ -1,4 +1,3 @@
-package rpg;
 public class Ability {
     private int maxHp = 0;
     private int hp = 0;

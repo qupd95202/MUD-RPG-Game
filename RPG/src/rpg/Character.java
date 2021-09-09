@@ -1,4 +1,3 @@
-package rpg;
 public class Character {
     private Ability ability;
     private String kind;
@@ -17,5 +16,13 @@ public class Character {
 
     public void setKind(String kind) {
         this.kind = kind;
+    }
+
+    public boolean isDead() {
+        Boolean isDead = false;
+        if (ability.getHp() <= 0) {
+            isDead = true;
+        }
+        return true;
     }
 }
