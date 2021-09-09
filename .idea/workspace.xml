@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43f91d24-192c-4f04-aca5-132f5f0e870a" name="Default" comment="" />
+    <list default="true" id="43f91d24-192c-4f04-aca5-132f5f0e870a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/RPG/src/rpg/Fight.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/rpg/Fight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/rpg/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/rpg/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG/src/rpg/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/RPG/src/rpg/Player.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,16 +18,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RPG/src/rpg/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
+            <state relative-caret-position="-741">
               <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#1488#1489#0" expanded="true" />
+                <element signature="e#1526#1527#0" expanded="true" />
+                <element signature="e#1798#1799#0" expanded="true" />
+                <element signature="e#1873#1874#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Character.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RPG/src/rpg/Character.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -37,6 +47,18 @@
                 <element signature="e#285#286#0" expanded="true" />
                 <element signature="e#325#326#0" expanded="true" />
                 <element signature="e#357#358#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RPG/src/rpg/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#1762#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,10 +89,11 @@
         <option value="$PROJECT_DIR$/RPG/src/rpg/Character.java" />
         <option value="$PROJECT_DIR$/RPG/src/rpg/Player.java" />
         <option value="$PROJECT_DIR$/RPG/src/rpg/RPG.java" />
+        <option value="$PROJECT_DIR$/RPG/src/rpg/Item.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="949" />
     <option name="y" value="-11" />
     <option name="width" value="983" />
@@ -199,7 +222,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -279,6 +302,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding>
+            <element signature="e#1488#1489#0" expanded="true" />
+            <element signature="e#1526#1527#0" expanded="true" />
+            <element signature="e#1798#1799#0" expanded="true" />
+            <element signature="e#1873#1874#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -360,13 +389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RPG/src/rpg/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RPG/src/rpg/RPG.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -390,6 +412,29 @@
             <element signature="e#285#286#0" expanded="true" />
             <element signature="e#325#326#0" expanded="true" />
             <element signature="e#357#358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RPG/src/rpg/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#1762#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RPG/src/rpg/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-741">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#1488#1489#0" expanded="true" />
+            <element signature="e#1526#1527#0" expanded="true" />
+            <element signature="e#1798#1799#0" expanded="true" />
+            <element signature="e#1873#1874#0" expanded="true" />
           </folding>
         </state>
       </provider>
