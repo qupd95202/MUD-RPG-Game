@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Player extends Character {
 
-    private ArrayList<Drops> weaponList = new ArrayList<Drops>();
-    private ArrayList<Drops> armorList = new ArrayList<Drops>();
-    private ArrayList<Drops> itemList = new ArrayList<Drops>();
+    private ArrayList<Items> weaponList = new ArrayList<Items>();
+    private ArrayList<Items> armorList = new ArrayList<Items>();
+    private ArrayList<Items> ItemssList = new ArrayList<Items>();
     private int positon;
 
     public Player() {
@@ -44,21 +44,21 @@ public class Player extends Character {
     }
 
     public void use(int choose) {
-        this.getAbility().merge(itemList.get(choose-1).ability);
+        this.getAbility().merge(ItemssList.get(choose - 1).ability);
     }
 
     public void changeWhenWearingEquipment() {
-        for (Drops weapon : weaponList) {
+        for (Items weapon : weaponList) {
             getAbility().merge(weapon.ability);
         }                                     //穿武器防具時帶來的變化
-        for (Drops armor : armorList) {
+        for (Items armor : armorList) {
             getAbility().merge(armor.ability);
         }
     }
 
     public void supply() {
-        for (int i = 0; i < itemList.size(); i++) {
-            System.out.println((i + 1) + ". " + itemList.get(0));
+        for (int i = 0; i < ItemssList.size(); i++) {
+            System.out.println((i + 1) + ". " + ItemssList.get(0));
         }
     }
 
