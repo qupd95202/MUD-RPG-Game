@@ -1,3 +1,5 @@
+package rpg;
+
 import java.util.ArrayList;
 
 public class Player extends Character {
@@ -136,7 +138,7 @@ public class Player extends Character {
 
     public void supply() {
         for (int i = 0; i < bag.size(); i++) {
-            System.out.println((i + 1) + ". " + bag.get(0));
+            System.out.println((i + 1) + ". " + bag.get(i).ability.getName());
         }
     }
 
@@ -176,11 +178,11 @@ public class Player extends Character {
         for (Weapon weapon : weaponList) {
             System.out.print(" " + weapon.ability.getName());
         }
-        System.out.println("\n防具:");
+        System.out.print("\n防具:");
         for (Armor armor : armorList) {
             System.out.print(" " + armor.ability.getName());
         }
-        System.out.println("背包空間:" + getAbility().getItemMaxmum() + "  負重(當前/最大): " + getAbility().getEquipmentWeight() + "/" + getAbility().getCon() + "\n");
+        System.out.println("\n背包空間:" + getAbility().getItemMaxmum() + "  負重(當前/最大): " + getAbility().getEquipmentWeight() + "/" + getAbility().getCon() + "\n");
     }
 
     public void printAll() {

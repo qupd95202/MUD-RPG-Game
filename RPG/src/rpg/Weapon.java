@@ -1,3 +1,5 @@
+package rpg;
+
 public class Weapon extends Item {
 
     private boolean initial;

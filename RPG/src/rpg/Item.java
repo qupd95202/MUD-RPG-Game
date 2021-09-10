@@ -1,3 +1,5 @@
+package rpg;
+
 public class Item {
 
     protected Ability ability = new Ability();

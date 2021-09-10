@@ -1,13 +1,12 @@
-import java.util.ArrayList;
+package rpg;
 
 public class Animal extends Monster {
-    private ArrayList<Item> dropItemList = new ArrayList<Item>();  // 掉落物清單
-    private Item dropItem = new Item();  // 用來new出新掉落物
+    private Item item = new Item();
 
     public Animal() {
         setKind(1);  // 初始化設定動物在地圖1(森林)
-        dropItem.leather();  // 初始化設定掉落物為動物皮
-        dropItemList.add(dropItem);  // 將動物皮加入掉落物清單
+        item.leather();
+        getDropItems().add(item);
     }
 
     public void wolf() {
@@ -19,11 +18,9 @@ public class Animal extends Monster {
         ability.setDex(6);
         ability.setExp(5);
         ability.setLV(1);
-        setAbility(ability);
-        if (isDead()) {
-            dropItem.wolfLeg();
-            dropItemList.add(dropItem);
-        }
+        Item item = new Item();
+        item.wolfLeg();
+        getDropItems().add(item);
     }  // 設定狼的基本屬性&死後掉落物
 
     public void lion() {
@@ -35,11 +32,9 @@ public class Animal extends Monster {
         ability.setDex(4);
         ability.setExp(6);
         ability.setLV(1);
-        setAbility(ability);
-        if (isDead()) {
-            dropItem.lionClaw();
-            dropItemList.add(dropItem);
-        }
+        Item item = new Item();
+        item.lionClaw();
+        getDropItems().add(item);
     }  // 設定獅子的基本屬性&死後掉落物
 
     public void boar() {
@@ -51,11 +46,9 @@ public class Animal extends Monster {
         ability.setDex(4);
         ability.setExp(5);
         ability.setLV(1);
-        setAbility(ability);
-        if (isDead()) {
-            dropItem.pork();
-            dropItemList.add(dropItem);
-        }
+        Item item = new Item();
+        item.pork();
+        getDropItems().add(item);
     }  // 設定山豬的基本屬性&死後掉落物
 
     public void elephant() {
@@ -67,14 +60,8 @@ public class Animal extends Monster {
         ability.setDex(3);
         ability.setExp(10);
         ability.setLV(2);
-        setAbility(ability);
-        if (isDead()) {
-            dropItem.amimalSlayerMark();
-            dropItemList.add(dropItem);
-        }
+        Item item = new Item();
+        item.amimalSlayerMark();
+        getDropItems().add(item);
     }  // 設定大象的基本屬性&死後掉落物
-
-    public Item getDropItem() {
-        return null;
-    }
 }

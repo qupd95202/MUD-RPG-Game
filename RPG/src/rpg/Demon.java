@@ -1,11 +1,14 @@
+package rpg;
+
 import java.util.ArrayList;
 
 public class Demon extends Monster {
 
     public Demon() {
         setKind(2);  // 初始化設定動物在地圖2(深淵)
-        item.heartOfGhost();  // 初始化設定掉落物為動物皮
-        itemList.add(item);  // 將動物皮加入掉落物清單
+        Item item = new Item();
+        item.heartOfGhost();
+        getDropItems().add(item);
     }
 
     public void demonWolf() {
@@ -17,11 +20,9 @@ public class Demon extends Monster {
         ability.setDex(4);
         ability.setExp(5);
         ability.setLV(1);
-        setAbility(ability);
-        if (isDead()) {
-            item.wolfTooth();
-            itemList.add(item);
-        }
+        Item item = new Item();
+        item.wolfTooth();
+        getDropItems().add(item);
     }  // 設定魔狼的基本屬性&死後掉落物
 
     public void celestialHuang() {
@@ -33,11 +34,9 @@ public class Demon extends Monster {
         ability.setDex(5);
         ability.setExp(5);
         ability.setLV(1);
-        setAbility(ability);
-        if (isDead()) {
-            item.leather();
-            itemList.add(item);
-        }
+        Item item = new Item();
+        item.leather();
+        getDropItems().add(item);
     }  // 設定黃大仙的基本屬性&死後掉落物
 
     public void mountainDemon() {
@@ -49,11 +48,9 @@ public class Demon extends Monster {
         ability.setDex(4);
         ability.setExp(5);
         ability.setLV(1);
-        setAbility(ability);
-        if (isDead()) {
-            item.glass();
-            itemList.add(item);
-        }
+        Item item = new Item();
+        item.glass();
+        getDropItems().add(item);
     }  // 設定魑的基本屬性&死後掉落物
 
     public void bahamut() {
@@ -65,14 +62,8 @@ public class Demon extends Monster {
         ability.setDex(5);
         ability.setExp(10);
         ability.setLV(2);
-        setAbility(ability);
-        if (isDead()) {
-            item.demomSlayerMark();
-            itemList.add(item);
-        }
+        Item item = new Item();
+        item.demomSlayerMark();
+        getDropItems().add(item);
     }  // 設定巴哈姆特的基本屬性&死後掉落物
-
-    public Item getDropItem() {
-        return null;
-    }
 }

@@ -1,6 +1,6 @@
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
+package rpg;
 
+import java.util.Random;
 
 public class Fight {
     private Random random = new Random();
@@ -34,6 +34,7 @@ public class Fight {
                 player.buffCountDown();
             }
         }
+        round = 0;  //round 歸零
         player.removeBuff(); //buff移除
         player.setFighting(false); //離開戰鬥狀態
         overFight(player, monster); //結算
