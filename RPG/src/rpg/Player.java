@@ -1,13 +1,18 @@
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Player extends Character {
 
     private ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
     private ArrayList<Armor> armorList = new ArrayList<Armor>();
-    private ArrayList<Items> ItemssList = new ArrayList<Items>();
+    private ArrayList<Items> bag = new ArrayList<Items>();
+    private ArrayList<Items> buffList = new ArrayList<Items>();
     private int positon;
+    private boolean isFighting = false;
+    private int whichMap;
+
 
     public Player() {
         Ability initialAbility = new Ability();
@@ -25,6 +30,7 @@ public class Player extends Character {
         initialAbility.setMaxExp(10);
         setAbility(initialAbility);
         positon = 0;  //起始位置在原點
+
     }
 
     public void lvelUp() {
@@ -50,22 +56,84 @@ public class Player extends Character {
         getAbility().merge(weapon.ability);
     }
 
+    public void takeOffWeapon(int indexInList) { //脫裝
+        if (indexInList <= weaponList.size()) { //不可以選擇超出範圍的裝
+            getAbility().unMerge(weaponList.get(indexInList - 1).ability);  // (回歸原本)
+            bag.add(weaponList.get(indexInList - 1)); //放回背包
+            weaponList.remove(indexInList - 1);// 卸下原本在裝備欄的位置
+        } else {
+            System.out.println("輸入錯誤");
+        }
+    }
+
     public void wearArmor(Armor armor) {
         armorList.add(armor);     //同上
         getAbility().merge(armor.ability);
     }
 
-    public void use(int choose) {
-        this.getAbility().merge(ItemssList.get(choose - 1).ability);
-    }
-
-    public void supply() {
-        for (int i = 0; i < ItemssList.size(); i++) {
-            System.out.println((i + 1) + ". " + ItemssList.get(0));
+    public void takeOffArmor(int indexInList) { //脫裝
+        if (indexInList <= armorList.size()) { //不可以選擇超出範圍的裝
+            getAbility().unMerge(armorList.get(indexInList - 1).ability);  // (回歸原本)
+            bag.add(armorList.get(indexInList - 1)); //放回背包
+            armorList.remove(indexInList - 1);// 卸下原本在裝備欄的位置
+        } else {
+            System.out.println("輸入錯誤");
         }
     }
 
-    public void printStatte() {
+    public void use(int choose) {
+        Items item = bag.get(choose - 1);        ////使用背包東西(順便把背包裡的那個刪掉)
+        bag.remove(choose - 1);
+        this.getAbility().merge(item.ability);
+    }
+
+    public void buffCountDown() {
+        for(Items items : buffList) {
+
+        }
+    }
+
+    public void supply() {
+        for (int i = 0; i < bag.size(); i++) {
+            System.out.println((i + 1) + ". " + bag.get(0));
+        }
+    }
+
+    public int getPositon() {
+        return positon;
+    }
+
+    public void setPositon(int positon) {
+        this.positon = positon;
+    }
+
+    public int getWhichMap() {
+        return whichMap;
+    }
+
+    public void setWhichMap(int whichMap) {
+        this.whichMap = whichMap;
+    }
+
+    public boolean isFighting() {
+
+        return isFighting;
+    }
+
+    public void setFighting(boolean fighting) {
+        isFighting = fighting;
+    }
+
+    public void getItem(Items items) {
+        if (bag.size() < getAbility().getItemMaxmum()) {
+            bag.add(items);
+            System.out.println("獲得" + items.ability.getName());
+        } else {
+            System.out.println("背包已滿，無法獲得");
+        }
+    }
+
+    public void printState() {
         System.out.println("\n" + this);
     }
 
@@ -84,7 +152,7 @@ public class Player extends Character {
     }
 
     public void printAll() {
-        printStatte();
+        printState();
         printEquipment();
     }
 

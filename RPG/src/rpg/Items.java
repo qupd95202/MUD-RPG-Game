@@ -1,6 +1,15 @@
 public class Items {
 
-    Ability ability = new Ability();
+    protected Ability ability = new Ability();
+    private int buffTime;
+
+    public int getBuffTime() {
+        return buffTime;
+    }
+
+    public void setBuffTime(int buffTime) {
+        this.buffTime = buffTime;
+    }
 
     public Ability getAbility() {
         return ability;

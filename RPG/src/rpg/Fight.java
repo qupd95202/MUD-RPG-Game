@@ -2,8 +2,9 @@ import java.util.Random;
 
 public class Fight {
     private Random random = new Random();
+    int round = 0;
 
-    public void isEscaping(Character player, Character monster) { //要改不林
+    public boolean isEscaping(Character player, Character monster) { //要改不林
         boolean isEscape = false;
         if (random.nextDouble() <= (player.getAbility().getDex() - monster.getAbility().getDex()) * 0.4) { //(自身敏捷-怪物敏捷)*40%為逃跑率
             isEscape = true;

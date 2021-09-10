@@ -181,4 +181,13 @@ public class Ability {
         hit += newAbility.hit;
         equipmentWeight += newAbility.equipmentWeight;
     }
+
+    public void unMerge(Ability newAbility) {
+        hp -= newAbility.hp;
+        str -= newAbility.str;
+        dex -= newAbility.dex;
+        def -= newAbility.def;
+        hit -= newAbility.hit;
+        equipmentWeight -= newAbility.equipmentWeight;
+    }
 }

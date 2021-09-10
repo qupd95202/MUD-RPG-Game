@@ -1,6 +1,6 @@
 public class Character {
     private Ability ability;
-    private String kind;
+    private int kind;
 
     public Ability getAbility() {
         return ability;
@@ -10,11 +10,11 @@ public class Character {
         this.ability = ability;
     }
 
-    public String getKind() {
+    public int getKind() {
         return kind;
     }
 
-    public void setKind(String kind) {
+    public void setKind(int kind) {
         this.kind = kind;
     }
 
