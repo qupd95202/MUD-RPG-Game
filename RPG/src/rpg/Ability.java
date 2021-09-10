@@ -139,6 +139,10 @@ public class Ability {
     }
 
     public void addHp(int value) {
+        if (value + hp > maxHp) {
+            hp = maxHp;
+            return;
+        }
         hp += value;
     }
 
