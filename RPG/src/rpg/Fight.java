@@ -14,14 +14,17 @@ public class Fight {
         return isEscape;
     }
 
-    public void startFight(Player player, Monster monster) throws InterruptedException {   //戰鬥開始
+    public void startFight(Player player, Monster monster) throws InterruptedException {  //戰鬥開始
         player.setFighting(true); //處於戰鬥狀態
         player.buffTakeEffect(monster); //buff生效
         if (player.getAbility().getDex() >= monster.getAbility().getDex()) { //判斷誰敏捷高誰先攻擊
             System.out.println(player.getAbility().getName() + "先攻");
-            while (!player.isDead() && !monster.isDead()) {  //沒有人死的話會一直打下去
+            while (!player.isDead() && !monster.isDead()) {//沒有人死的話會一直打下去
                 round++;
-                System.out.println("第" + round + "回合");
+                System.out.println("\n第" + round + "回合");
+                System.out.println(player.getAbility().getName() + "攻擊!");
+                attack(player, monster);
+                System.out.println(monster.getAbility().getName() + "攻擊!");
                 attack(player, monster);
                 player.buffCountDown(); //玩家buff扣除一回合
             }
@@ -29,12 +32,15 @@ public class Fight {
             System.out.println(monster.getAbility().getName() + "先攻");
             while (!player.isDead() && !monster.isDead()) {
                 round++;
-                System.out.println("第" + round + "回合");
-                attack(monster, player);
+                System.out.println("\n第" + round + "回合");
+                System.out.println(monster.getAbility().getName() + "攻擊!");
+                attack(player, monster);
+                System.out.println(monster.getAbility().getName() + "攻擊!");
+                attack(player, monster);
                 player.buffCountDown();
             }
         }
-        round = 0;  //round 歸零
+        round = 0;//round 歸零
         player.removeBuff(); //buff移除
         player.setFighting(false); //離開戰鬥狀態
         overFight(player, monster); //結算
@@ -51,30 +57,10 @@ public class Fight {
             System.out.println("命中了");
             int damage = former.getAbility().getStr() - latter.getAbility().getDef(); //計算傷害
             if (damage > 0) { //判定傷害是否>0
-                latter.getAbility().addHp(damage * (-1));   //扣血(+負的血量)
+                latter.getAbility().addHp(damage * (-1)); //扣血(+負的血量)
                 Thread.sleep(1500);
                 System.out.println(former.getAbility().getName() + "對" + latter.getAbility().getName() + "造成了" + damage + "傷害");
                 if (latter.isDead()) { //死亡就跳出
-                    return;
-                }
-            } else {
-                Thread.sleep(1500);
-                System.out.println("被擋下來了，沒有傷害");
-            }
-        } else {
-            Thread.sleep(1500);
-            System.out.println("Miss!");
-        }
-        //後手攻擊
-        if (isHit(latter, former)) {
-            Thread.sleep(1500);
-            System.out.println("命中了!");
-            int damage = latter.getAbility().getStr() - former.getAbility().getDef();
-            if (damage > 0) {
-                Thread.sleep(1500);
-                System.out.println(latter.getAbility().getName() + "對" + former.getAbility().getName() + "造成了" + damage + "傷害");
-                former.getAbility().addHp(damage * -1);
-                if (former.isDead()) {
                     return;
                 }
             } else {
@@ -96,9 +82,10 @@ public class Fight {
             System.out.println("恭喜擊敗 " + monster.getAbility().getName() + " !");
             Thread.sleep(1500);
             player.getAbility().addExp(exp);
-            System.out.println("獲得" + exp + "EXP");
+            System.out.print("獲得" + exp + "EXP   ");
             player.lvelUp();
             player.getItem(monster.getDropItem());
+            System.out.println();
         }
     }
 }

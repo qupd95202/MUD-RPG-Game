@@ -106,18 +106,20 @@ public class Player extends Character {
     public boolean use(int choose) {////使用背包東西(順便把背包裡的那個刪掉) + 回傳布林值判斷使用成功與否
         Item item = bag.get(choose - 1);     //背包裡的那個東西
         boolean isOk = false;
-        if (item.isPermanentBuff()) { //先判斷是否為永久型buff型道具
-            buffList.add(item);
-            bag.remove(choose - 1);
-            isOk = true;
-        } else if (item.getBuffTime() > 0 && isFighting) { //判斷是否為戰鬥中使用的buff道具
-            buffList.add(item);
-            bag.remove(choose - 1);
-            isOk = true;
-        } else if (item.getUseable()) {   //其他種道具使用
-            getAbility().merge(item.ability);
-            bag.remove(item);
-            isOk = true;
+        if (choose <= bag.size()) {  //防呆
+            if (item.isPermanentBuff()) { //先判斷是否為永久型buff型道具
+                buffList.add(item);
+                bag.remove(choose - 1);
+                isOk = true;
+            } else if (item.getBuffTime() > 0 && isFighting) { //判斷是否為戰鬥中使用的buff道具
+                buffList.add(item);
+                bag.remove(choose - 1);
+                isOk = true;
+            } else if (item.getUseable()) {   //其他種道具使用
+                getAbility().merge(item.ability);
+                bag.remove(item);
+                isOk = true;
+            }
         }
         return isOk;
     }
