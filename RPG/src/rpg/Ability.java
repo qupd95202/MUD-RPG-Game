@@ -139,10 +139,6 @@ public class Ability {
     }
 
     public void addHp(int value) {
-        if (value + hp > maxHp) {
-            hp = maxHp;
-            return;
-        }
         hp += value;
     }
 
@@ -185,7 +181,11 @@ public class Ability {
     }
 
     public void merge(Ability newAbility) {
+        maxHp += newAbility.maxHp;
         hp += newAbility.hp;
+        if (hp > maxHp) {
+            hp = maxHp;
+        }
         str += newAbility.str;
         dex += newAbility.dex;
         def += newAbility.def;
