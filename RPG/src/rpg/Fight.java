@@ -25,7 +25,7 @@ public class Fight {
                 System.out.println(player.getAbility().getName() + "攻擊!");
                 attack(player, monster);
                 System.out.println(monster.getAbility().getName() + "攻擊!");
-                attack(player, monster);
+                attack(monster, player);
                 player.buffCountDown(); //玩家buff扣除一回合
             }
         } else {
@@ -34,7 +34,7 @@ public class Fight {
                 round++;
                 System.out.println("\n第" + round + "回合");
                 System.out.println(monster.getAbility().getName() + "攻擊!");
-                attack(player, monster);
+                attack(monster, player);
                 System.out.println(monster.getAbility().getName() + "攻擊!");
                 attack(player, monster);
                 player.buffCountDown();
