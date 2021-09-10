@@ -1,4 +1,4 @@
-public class Weapon extends Items {
+public class Weapon extends Item {
 
     private boolean initial;
 

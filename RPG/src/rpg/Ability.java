@@ -160,6 +160,10 @@ public class Ability {
         hit += value;
     }
 
+    public void addExp(int value) {
+        exp += value;
+    }
+
     public void lvUp() {
         LV++;
     }

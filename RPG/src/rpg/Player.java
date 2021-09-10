@@ -1,17 +1,13 @@
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Player extends Character {
 
     private ArrayList<Weapon> weaponList = new ArrayList<Weapon>();
     private ArrayList<Armor> armorList = new ArrayList<Armor>();
-    private ArrayList<Items> bag = new ArrayList<Items>();
-    private ArrayList<Items> buffList = new ArrayList<Items>();
+    private ArrayList<Item> bag = new ArrayList<Item>();
+    private ArrayList<Item> buffList = new ArrayList<Item>();
     private int positon;
     private boolean isFighting = false;
-    private int whichMap;
 
 
     public Player() {
@@ -36,6 +32,7 @@ public class Player extends Character {
     public void lvelUp() {
         if (getAbility().getExp() >= getAbility().getMaxExp()) {
             getAbility().lvUp();//升等
+            System.out.println("恭喜升等  目前等級: Lv." + getAbility().getLV());
             getAbility().setExp(getAbility().getExp() - getAbility().getMaxExp());//經驗值歸零+溢出
             getAbility().setMaxExp(getAbility().getMaxExp() * 2);//最大經驗值變成原本兩倍
             getAbility().addStr(2);
@@ -43,6 +40,8 @@ public class Player extends Character {
             getAbility().addHp(2);   //各項素質提升
             getAbility().addHit(2);
             getAbility().addDef(2);
+            System.out.println("所有素質提升");
+            printState();
             lvelUp(); //判定有無可能一次升多等
         }
     }
@@ -81,15 +80,57 @@ public class Player extends Character {
         }
     }
 
-    public void use(int choose) {
-        Items item = bag.get(choose - 1);        ////使用背包東西(順便把背包裡的那個刪掉)
-        bag.remove(choose - 1);
-        this.getAbility().merge(item.ability);
+    public boolean use(int choose) {////使用背包東西(順便把背包裡的那個刪掉) + 回傳布林值判斷使用成功與否
+        Item item = bag.get(choose - 1);     //背包裡的那個東西
+        boolean isOk = false;
+        if (item.isPermanentBuff()) { //先判斷是否為永久型buff型道具
+            buffList.add(item);
+            bag.remove(choose - 1);
+            isOk = true;
+        } else if (item.getBuffTime() > 0 && isFighting) { //判斷是否為戰鬥中使用的buff道具
+            buffList.add(item);
+            bag.remove(choose - 1);
+            isOk = true;
+        } else if (item.getUseable()) {   //其他種道具使用
+            getAbility().merge(item.ability);
+            bag.remove(item);
+            isOk = true;
+        }
+        return isOk;
     }
 
-    public void buffCountDown() {
-        for(Items items : buffList) {
+    public void buffTakeEffect(Character monster) {  //判斷buff生效
+        for (Item item : buffList) {
+            if (item.isPermanentBuff()) {
+                if (item.getAgainstAnimalOrDemon() == monster.getKind()) {  //判斷對何種怪物生效
+                    getAbility().merge(item.ability);
+                }
+            } else {
+                getAbility().merge(item.ability);
+            }
+        }
+    }
 
+    public void buffCountDown() {  //buff倒數 (不管永久性buff)
+        for (Item items : buffList) {
+            if (!items.isPermanentBuff()) {
+                items.reduceBuffTime();
+            }
+            if (items.getBuffTime() == 0) {
+                getAbility().unMerge(items.ability); //復原狀態
+                buffList.remove(items); //至buff列表移除
+            }
+        }
+    }
+
+    public void removeBuff() {
+        for (Item item : buffList) {
+            if (!item.isPermanentBuff()) {
+                getAbility().unMerge(item.ability);  //復原狀態
+                buffList.remove(item); //至buff列表移除
+            } else {
+                getAbility().unMerge(item.ability); //永久性buff只會復原狀態不移除
+            }
         }
     }
 
@@ -107,16 +148,7 @@ public class Player extends Character {
         this.positon = positon;
     }
 
-    public int getWhichMap() {
-        return whichMap;
-    }
-
-    public void setWhichMap(int whichMap) {
-        this.whichMap = whichMap;
-    }
-
     public boolean isFighting() {
-
         return isFighting;
     }
 
@@ -124,10 +156,10 @@ public class Player extends Character {
         isFighting = fighting;
     }
 
-    public void getItem(Items items) {
+    public void getItem(Item item) {
         if (bag.size() < getAbility().getItemMaxmum()) {
-            bag.add(items);
-            System.out.println("獲得" + items.ability.getName());
+            bag.add(item);
+            System.out.println("獲得" + item.ability.getName());
         } else {
             System.out.println("背包已滿，無法獲得");
         }

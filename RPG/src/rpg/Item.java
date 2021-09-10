@@ -5,7 +5,6 @@ public class Item {
     private boolean useable;
     private int price;
     private String useage = "";
-    private boolean useWhenCombat;
     private boolean isPermanentBuff;
     private int againstAnimalOrDemon = 0;
 
@@ -37,14 +36,6 @@ public class Item {
         this.buffTime = buffTime;
     }
 
-    public void setUseWhemCombat(boolean useWhenCombat) {
-        this.useWhenCombat = useWhenCombat;
-    }
-
-    public boolean getUseWhemCombat() {
-        return this.useWhenCombat;
-    }
-
     public void reduceBuffTime() {
         buffTime--;
     }
@@ -69,30 +60,30 @@ public class Item {
         return this.price;
     }
 
-
     public void healingPotion() {
         ability.setName("治療藥水");
         setUseable(true);
+        ability.setHp(3);
         setPrice(3);
         setUseage("回復3點血量");
     }
 
     public void powerIncreasePotion() {
         ability.setName("力量增強藥水");
-        setUseable(true);
+        ability.setStr(2);
+        setUseable(false);
         setPrice(2);
         setUseage("+2力量，持續兩次攻擊，戰鬥結束後消失");
         setBuffTime(2);
-        setUseWhemCombat(true);
     }
 
     public void defenceIncreasePotion() {
         ability.setName("防禦增強藥水");
-        setUseable(true);
+        ability.setDef(2);
+        setUseable(false);
         setPrice(2);
         setUseage("+2防禦，持續兩次攻擊，戰鬥結束後消失");
         setBuffTime(2);
-        setUseWhemCombat(true);
     }
 
     public void leather() {
@@ -115,6 +106,8 @@ public class Item {
 
     public void pork() {
         ability.setName("豬肉");
+        ability.setHp(2);
+        ability.setDef(-1);
         setUseable(true);
         setPrice(2);
         setUseage("回復2點血量，-1防禦");
@@ -122,8 +115,11 @@ public class Item {
 
     public void amimalSlayerMark() {
         ability.setName("動物屠殺者徽章");
+        ability.setHit(1);
+        ability.setStr(1);
         setUseable(true);
         setPrice(4);
+        setBuffTime(99);
         setUseage("與動物戰鬥時，+1攻擊力,+1命中");
         setPermanentBuff(true);
         setAgainstAnimalOrDemon(1);
@@ -149,8 +145,11 @@ public class Item {
 
     public void demomSlayerMark() {
         ability.setName("惡魔屠殺者徽章");
+        ability.setStr(1);
+        ability.setHit(1);
         setUseable(true);
         setPrice(4);
+        setBuffTime(99);
         setUseage("與魔物戰鬥時，+1攻擊力,+1命中");
         setPermanentBuff(true);
         setAgainstAnimalOrDemon(2);

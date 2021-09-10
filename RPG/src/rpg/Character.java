@@ -1,5 +1,5 @@
 public class Character {
-    private Ability ability;
+    protected Ability ability;
     private int kind;
 
     public Ability getAbility() {
