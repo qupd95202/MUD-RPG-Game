@@ -35,7 +35,7 @@ public class Fight {
                 System.out.println("\n第" + round + "回合");
                 System.out.println(monster.getAbility().getName() + "攻擊!");
                 attack(monster, player);
-                System.out.println(monster.getAbility().getName() + "攻擊!");
+                System.out.println(player.getAbility().getName() + "攻擊!");
                 attack(player, monster);
                 player.buffCountDown();
             }
@@ -65,7 +65,8 @@ public class Fight {
                 }
             } else {
                 Thread.sleep(1500);
-                System.out.println("被擋下來了，沒有傷害");
+                latter.getAbility().addHp(-1);
+                System.out.println("被擋下來了，只扣一滴");
             }
         } else {
             Thread.sleep(1500);
