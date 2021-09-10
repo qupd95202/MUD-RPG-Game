@@ -4,6 +4,10 @@ public class Weapon extends Item {
 
     private boolean initial;
 
+    public Weapon() {
+        super.setWeapon(true);
+    }
+
     public void sword() {
         this.ability.setStr(2);
         this.ability.setEquipmentWeight(10);

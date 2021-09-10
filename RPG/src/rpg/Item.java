@@ -9,6 +9,25 @@ public class Item {
     private String useage = "";
     private boolean isPermanentBuff;
     private int againstAnimalOrDemon = 0;
+    private boolean isWeapon = false;
+
+    public boolean isWeapon() {
+        return isWeapon;
+    }
+
+    public void setWeapon(boolean weapon) {
+        isWeapon = weapon;
+    }
+
+    public boolean isArmor() {
+        return isArmor;
+    }
+
+    public void setArmor(boolean armor) {
+        isArmor = armor;
+    }
+
+    private boolean isArmor = false;
 
     public int getAgainstAnimalOrDemon() {
         return againstAnimalOrDemon;

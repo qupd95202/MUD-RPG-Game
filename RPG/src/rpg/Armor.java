@@ -4,6 +4,11 @@ public class Armor extends Item {
 
     private boolean initial;
 
+    public Armor() {
+        super.setArmor(true);
+    }
+
+
     public void woodenArmor() {
         ability.setDef(1);
         ability.setEquipmentWeight(10);

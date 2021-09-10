@@ -11,7 +11,6 @@ public class Player extends Character {
     private int positon;
     private boolean isFighting = false;
 
-
     public Player() {
         Ability initialAbility = new Ability();
         initialAbility.setArmorMaxmum(1);
@@ -118,6 +117,14 @@ public class Player extends Character {
                 getAbility().merge(item.ability);
                 bag.remove(item);
                 isOk = true;
+            } else if (item.isArmor()) {
+                takeOffArmor(1);  //目前只有一格裝備，所以暫時先1之後再改
+                wearArmor((Armor) item); //穿裝
+                bag.remove(item);
+            } else if (item.isWeapon()) {
+                takeOffWeapon(1);
+                wearWeapon((Weapon) item);
+                bag.remove(item);
             }
         }
         return isOk;
