@@ -4,45 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Monster extends Character {
-    Random random = new Random();
-    private ArrayList<Animal> animals = new ArrayList<Animal>();  // 動物清單
-    private ArrayList<Demon> demons = new ArrayList<Demon>();  // 魔物清單
+    private Random random = new Random();
     private ArrayList<Item> dropItems = new ArrayList<Item>();  // 掉落物清單
-
-
-    public void setAnimals() {
-        Animal wolf = new Animal();
-        Animal lion = new Animal();
-        Animal boar = new Animal();
-        wolf.wolf();
-        animals.add(wolf);
-        lion.lion();
-        animals.add(lion);
-        boar.boar();
-        animals.add(boar);
-    }
-
-    public ArrayList<Animal> getAnimals() {
-        return animals;
-    }  // 取得動物清單
-
-    public void setDemons() {
-        Demon demonWolf = new Demon();
-        Demon celestialHuang = new Demon();
-        Demon mountainDemon = new Demon();
-
-        demonWolf.demonWolf();
-        demons.add(demonWolf);
-        celestialHuang.celestialHuang();
-        demons.add(celestialHuang);
-        mountainDemon.mountainDemon();
-        demons.add(mountainDemon);
-
-    }
-
-    public ArrayList<Demon> getDemons() {
-        return demons;
-    }  // 取得魔物清單
 
     public ArrayList<Item> getDropItems() {
         return dropItems;
@@ -52,5 +15,39 @@ public class Monster extends Character {
         Item item = null;
         item = getDropItems().get(random.nextInt(getDropItems().size()));
         return item;
+    }
+
+    public  Demon genDemon() {
+        int r = random.nextInt(3) + 1;
+        Demon demon = new Demon();
+        switch (r) {
+            case 1:
+                demon.mountainDemon();
+                break;
+            case 2:
+                demon.demonWolf();
+                break;
+            case 3:
+                demon.celestialHuang();
+                break;
+        }
+        return demon;
+    }
+
+    public  Animal genAnimal() {
+        int r = random.nextInt(3) + 1;
+        Animal animal = new Animal();
+        switch (r) {
+            case 1:
+                animal.wolf();
+                break;
+            case 2:
+                animal.boar();
+                break;
+            case 3:
+                animal.lion();
+                break;
+        }
+        return animal;
     }
 }

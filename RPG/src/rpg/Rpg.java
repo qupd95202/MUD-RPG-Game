@@ -19,12 +19,11 @@ public class Rpg {
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
         Fight fight = new Fight();
+        Monster monster = new Monster();
 
         //森林怪物清單
-        Monster monster = new Monster();
-        monster.setAnimals();
+
         //森林怪物清單
-        ArrayList<Animal> forest = monster.getAnimals();
 
         //角色命名
         Player newPlayer = new Player();
@@ -149,7 +148,7 @@ public class Rpg {
 
                     case 1://遇到被動怪物 要先抓出怪物
 
-                        Animal animal = forest.get(Random(0, 3));//隨機挑怪物
+                        Animal animal = monster.genAnimal();//隨機挑怪物
 
                         System.out.println("遇到" + animal.ability.getName() + "要逃跑嗎？ ");
                         System.out.println("選擇1：逃跑\n " + "選擇2：戰鬥 ");
@@ -181,9 +180,9 @@ public class Rpg {
 
                     case 2://遇到主動怪物
                         System.out.println("遇到主動怪物，不能逃跑！ ");
-                        animal = monster.getAnimals().get(Random(0, 3));//隨機挑怪物
+                        Animal animal2 = monster.genAnimal();//隨機挑怪物
                         System.out.println("戰鬥開始");
-                        fight.startFight(newPlayer, animal);
+                        fight.startFight(newPlayer, animal2);
 
                         if (newPlayer.isDead()) {
                             newPlayer.setPositon(0);//步數重算
@@ -257,25 +256,23 @@ public class Rpg {
 
 
                     case 1://遇到被動怪物 要先抓出怪物
-                        Animal animal = new Animal();
-                        animal = monster.getAnimals().get(Random(0, 3));//隨機挑怪物
-
-                        System.out.println("遇到" + animal.ability.getName() + "要逃跑嗎？ ");
+                        Demon demon = monster.genDemon();//隨機挑怪物
+                        System.out.println("遇到" + demon.ability.getName() + "要逃跑嗎？ ");
                         System.out.println("選擇1：逃跑\n " + "選擇2：戰鬥 ");
                         int choose = sc.nextInt();
                         switch (choose) {
                             case 1:
                                 System.out.println("你選擇逃跑");
-                                if (fight.isEscaping(newPlayer, animal)) {
+                                if (fight.isEscaping(newPlayer, demon)) {
                                     System.out.println("逃跑成功");
                                 } else {
                                     System.out.println("逃跑失敗 開始戰鬥");
-                                    fight.startFight(newPlayer, animal);
+                                    fight.startFight(newPlayer, demon);
                                 }
                                 break;
                             case 2:
                                 System.out.println("你選擇戰鬥");
-                                fight.startFight(newPlayer, animal);
+                                fight.startFight(newPlayer, demon);
                                 break;
                         }
                         if (newPlayer.isDead()) {
@@ -290,9 +287,9 @@ public class Rpg {
 
                     case 2://遇到主動怪物
                         System.out.println("遇到主動怪物，不能逃跑！ ");
-                        animal = monster.getAnimals().get(Random(0, 3));//隨機挑怪物
+                        Demon demon2 = monster.genDemon();//隨機挑怪物
                         System.out.println("戰鬥開始");
-                        fight.startFight(newPlayer, animal);
+                        fight.startFight(newPlayer, demon2);
 
                         if (newPlayer.isDead()) {
                             newPlayer.setPositon(0);//步數重算
