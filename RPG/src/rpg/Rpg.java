@@ -25,9 +25,6 @@ public class Rpg {
         monster.setAnimals();
         //森林怪物清單
         ArrayList<Animal> forest = monster.getAnimals();
-        for(Animal animal : forest) {
-            System.out.println(animal);
-        }
 
         //角色命名
         Player newPlayer = new Player();
@@ -151,8 +148,8 @@ public class Rpg {
 
 
                     case 1://遇到被動怪物 要先抓出怪物
-                        Animal animal = new Animal();
-                        animal = forest.get(Random(0, 3));//隨機挑怪物
+
+                        Animal animal = forest.get(Random(0, 3));//隨機挑怪物
 
                         System.out.println("遇到" + animal.ability.getName() + "要逃跑嗎？ ");
                         System.out.println("選擇1：逃跑\n " + "選擇2：戰鬥 ");
