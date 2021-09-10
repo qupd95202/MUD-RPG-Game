@@ -59,7 +59,7 @@ public class Fight {
             if (damage > 0) { //判定傷害是否>0
                 defer.getAbility().addHp(damage * (-1)); //扣血(+負的血量)
                 Thread.sleep(1500);
-                System.out.println(atker.getAbility().getName() + "對" + defer.getAbility().getName() + "造成了" + damage + "傷害");
+                System.out.println(atker.getAbility().getName() + "對" + defer.getAbility().getName() + "造成了" + damage + "傷害\n");
                 if (defer.isDead()) { //死亡就跳出
                     return;
                 }

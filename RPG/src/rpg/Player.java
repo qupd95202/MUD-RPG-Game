@@ -28,7 +28,6 @@ public class Player extends Character {
         initialAbility.setMaxExp(10);
         setAbility(initialAbility);
         positon = 0;  //起始位置在原點
-
     }
 
     public void lvelUp() {
@@ -104,9 +103,9 @@ public class Player extends Character {
     }
 
     public boolean use(int choose) {////使用背包東西(順便把背包裡的那個刪掉) + 回傳布林值判斷使用成功與否
-        Item item = bag.get(choose - 1);     //背包裡的那個東西
         boolean isOk = false;
         if (choose <= bag.size()) {  //防呆
+            Item item = bag.get(choose - 1);     //背包裡的那個東西
             if (item.isPermanentBuff()) { //先判斷是否為永久型buff型道具
                 buffList.add(item);
                 bag.remove(choose - 1);
