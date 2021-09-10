@@ -14,15 +14,12 @@ public class Monster extends Character {
         Animal wolf = new Animal();
         Animal lion = new Animal();
         Animal boar = new Animal();
-        Animal elephant = new Animal();
         wolf.wolf();
         animals.add(wolf);
         lion.lion();
         animals.add(lion);
         boar.boar();
         animals.add(boar);
-        elephant.elephant();
-        animals.add(elephant);
     }
 
     public ArrayList<Animal> getAnimals() {
@@ -33,15 +30,14 @@ public class Monster extends Character {
         Demon demonWolf = new Demon();
         Demon celestialHuang = new Demon();
         Demon mountainDemon = new Demon();
-        Demon bahamut = new Demon();
+
         demonWolf.demonWolf();
         demons.add(demonWolf);
         celestialHuang.celestialHuang();
         demons.add(celestialHuang);
         mountainDemon.mountainDemon();
         demons.add(mountainDemon);
-        bahamut.bahamut();
-        demons.add(bahamut);
+
     }
 
     public ArrayList<Demon> getDemons() {

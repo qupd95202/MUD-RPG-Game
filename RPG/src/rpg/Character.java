@@ -25,6 +25,6 @@ public class Character {
         if (ability.getHp() <= 0) {
             isDead = true;
         }
-        return true;
+        return isDead;
     }
 }

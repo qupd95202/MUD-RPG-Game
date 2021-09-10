@@ -87,12 +87,16 @@ public class Fight {
         }
     }
 
-    public void overFight(Player player, Monster monster) {
+    public void overFight(Player player, Monster monster) throws InterruptedException {
         if (player.isDead()) {
             System.out.println("你死了QQ，請重新來過吧");
         } else {
+            int exp = monster.getAbility().getExp();
+            Thread.sleep(1500);
             System.out.println("恭喜擊敗 " + monster.getAbility().getName() + " !");
-            player.getAbility().addExp(monster.getAbility().getExp());
+            Thread.sleep(1500);
+            player.getAbility().addExp(exp);
+            System.out.println("獲得" + exp + "EXP");
             player.lvelUp();
             player.getItem(monster.getDropItem());
         }
