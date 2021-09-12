@@ -87,7 +87,7 @@ public class Rpg {
         System.out.println();
 //        newPlayer.printAll();
 //        System.out.println();
-        
+
         int kindCount = 0; //過關的地圖數
         while (true) {
             //地圖選擇（隨機）
@@ -144,10 +144,7 @@ public class Rpg {
 
                             if (selectStr.equals("use")) {
                                 boolean bo = newPlayer.use(selectInt);
-                                if (bo) {
-                                    System.out.println("成功使用");
-                                }
-                                if (bo) {
+                                if (!bo) {
                                     System.out.println("此道具無法使用");
                                 }
                             } else if (selectStr.equals("status")) {
@@ -205,12 +202,14 @@ public class Rpg {
                         Animal animal = monster.genAnimal();//隨機挑怪物
                         System.out.println("遇到" + animal.ability.getName() + "要逃跑嗎？ ");
                         System.out.println("選擇1：逃跑\n" + "選擇2：戰鬥\n" + "選擇3：使用道具 ");
+                        newPlayer.setFighting(true);
                         int choose = sc.nextInt();
                         switch (choose) {
                             case 1:
                                 System.out.println("你選擇逃跑");
                                 if (fight.isEscaping(newPlayer, animal)) {
                                     System.out.println("逃跑成功");
+                                    newPlayer.setFighting(false);
                                 } else {
                                     System.out.println("逃跑失敗 開始戰鬥");
                                     fight.startFight(newPlayer, animal);
@@ -231,10 +230,7 @@ public class Rpg {
 
                                 if (selectStr.equals("use")) {
                                     boolean bo = newPlayer.use(selectInt);
-                                    if (bo) {
-                                        System.out.println("成功使用");
-                                    }
-                                    if (bo) {
+                                    if (!bo) {
                                         System.out.println("此道具無法使用");
                                     }
                                 } else if (selectStr.equals("status")) {
@@ -351,10 +347,7 @@ public class Rpg {
 
                             if (selectStr.equals("use")) {
                                 boolean bo = newPlayer.use(selectInt);
-                                if (bo) {
-                                    System.out.println("使用成功");
-                                }
-                                if (bo) {
+                                if (!bo) {
                                     System.out.println("此道具無法使用");
                                 }
                             } else if (selectStr.equals("status")) {
@@ -409,12 +402,14 @@ public class Rpg {
                         Demon demon = monster.genDemon();//隨機挑怪物
                         System.out.println("遇到" + demon.ability.getName() + "要逃跑嗎？ ");
                         System.out.println("選擇1：逃跑\n" + "選擇2：戰鬥\n" + "選擇3：使用道具 ");
+                        newPlayer.setFighting(true);
                         int choose = sc.nextInt();
                         switch (choose) {
                             case 1:
                                 System.out.println("你選擇逃跑");
                                 if (fight.isEscaping(newPlayer, demon)) {
                                     System.out.println("逃跑成功");
+                                    newPlayer.setFighting(false);
                                 } else {
                                     System.out.println("逃跑失敗 開始戰鬥");
                                     fight.startFight(newPlayer, demon);
@@ -435,10 +430,7 @@ public class Rpg {
 
                                 if (selectStr.equals("use")) {
                                     boolean bo = newPlayer.use(selectInt);
-                                    if (bo) {
-                                        System.out.println("成功使用");
-                                    }
-                                    if (bo) {
+                                    if (!bo) {
                                         System.out.println("此道具無法使用");
                                     }
                                 } else if (selectStr.equals("status")) {

@@ -184,4 +184,8 @@ public class Item {
         }
         System.out.println("無功能");
     }
+
+    public String getUseage() {
+        return useage;
+    }
 }

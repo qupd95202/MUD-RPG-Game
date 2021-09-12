@@ -24,8 +24,10 @@ public class Fight {
                 System.out.println("\n第" + round + "回合");
                 System.out.println(player.getAbility().getName() + "攻擊!");
                 attack(player, monster);
-                System.out.println(monster.getAbility().getName() + "攻擊!");
-                attack(monster, player);
+                if (!monster.isDead()) {  //死了就不用打下去
+                    System.out.println(monster.getAbility().getName() + "攻擊!");
+                    attack(monster, player);
+                }
                 player.buffCountDown(); //玩家buff扣除一回合
             }
         } else {
@@ -35,8 +37,10 @@ public class Fight {
                 System.out.println("\n第" + round + "回合");
                 System.out.println(monster.getAbility().getName() + "攻擊!");
                 attack(monster, player);
-                System.out.println(player.getAbility().getName() + "攻擊!");
-                attack(player, monster);
+                if (!player.isDead()) {
+                    System.out.println(player.getAbility().getName() + "攻擊!");
+                    attack(player, monster);
+                }
                 player.buffCountDown();
             }
         }
@@ -70,7 +74,6 @@ public class Fight {
                 if (defer.isDead()) { //死亡就跳出
                     return;
                 }
-                Thread.sleep(1500);
             }
         } else {
             Thread.sleep(1500);
